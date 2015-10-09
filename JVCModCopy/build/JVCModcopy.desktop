@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Icon[en_US]=/opt/modcopy/jvc.png
+Name[en_US]=JVCModcopy
+Exec=/usr/bin/python2 /opt/modcopy/JVCModcopy.py 
+Comment[en_US]=convert the mods
+Name=JVC Modcopy
+Comment=convert the mod files
+Icon=/opt/modcopy/jvc.png
+Categories=GTK;AudioVideo

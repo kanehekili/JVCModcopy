@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project name="Build videocut" default="deploy">
+	<target name="build_dir">
+    	<property file="build.properties"/>
+		<property name="stage" value="stage"/>
+		<property name="rootDir" value="${stage}/modcopy"/>
+		<delete dir="${stage}"/>
+		<mkdir dir="${stage}"/>
+		<mkdir dir="${rootDir}"/>
+
+		<property name="source" value="../src"/>
+		<copy todir="${rootDir}">
+			<fileset file="*.desktop">
+			</fileset>
+			<fileset dir="${source}">
+			    <exclude name="*.pyc"/>
+				<exclude name="JVCModSelect.py"/>
+				<exclude name="gui*"/>
+				<exclude name="Camera*"/>
+			</fileset>
+		</copy>
+
+
+	</target>
+
+	<target name="deploy" depends="build_dir">
+		<delete>
+			<fileset dir="." includes="**/*.tar*"/>
+		</delete>	
+		<tar destfile="modcopy${version}.tar">
+			<fileset dir="${stage}"/>
+		</tar>
+		<delete dir="${stage}"/>
+	</target>
+</project>	
